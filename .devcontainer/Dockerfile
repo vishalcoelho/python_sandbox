@@ -8,7 +8,7 @@ RUN apt install software-properties-common -y \
     && apt-get -y install --no-install-recommends \
         python3.11 \
         python3-pip \
-        python3.8-venv
+        python3.11-venv
 
 
 ARG USERNAME=codespace
