@@ -10,10 +10,13 @@ test:
 	python -m pytest -vv --cov=main ${TEST_SRC}
 
 format:
-	@echo "Formatting ${SRC} using black"
+	@echo "Formatting using black"
+	@echo "======================"
 	black ${SRC}
 
 lint:
+	@echo "Running lint"
+	@echo "============"
 	pylint --disable=R,C --ignore-patterns=${TEST_SRC} ${SRC}
 
 refactor: format lint
