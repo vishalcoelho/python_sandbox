@@ -1,8 +1,10 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/codespaces-linux/.devcontainer/base.Dockerfile
-FROM mcr.microsoft.com/vscode/devcontainers/universal:2-linux
+FROM mcr.microsoft.com/vscode/devcontainers/universal:2-focal
 
-RUN apt-get update && apt-get -y install --no-install-recommends \
-  python3.11-venv
+
+# ** [Optional] Uncomment this section to install additional packages. **
+# RUN apt-get update && apt-get -y install --no-install-recommends \
+  
   
 ARG USERNAME=codespace
 ARG USER_UID=1000
