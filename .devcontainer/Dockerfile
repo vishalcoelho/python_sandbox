@@ -2,8 +2,8 @@
 FROM mcr.microsoft.com/vscode/devcontainers/universal:2-focal
 
 
-# ** [Optional] Uncomment this section to install additional packages. **
-# RUN apt-get update && apt-get -y install --no-install-recommends \
+RUN apt-get update && apt-get -y install --no-install-recommends \
+  python3.8-venv
   
   
 ARG USERNAME=codespace
