@@ -1,13 +1,16 @@
 
 SRC := $(wildcard *.py) $(wildcard funcLog/*.py)
-TEST_SRC := $(wildcard test_.*?py)
+TEST_SRC := $(wildcard test/*/test_*?.py)
 
 install:
 	pip install --upgrade pip &&\
 	pip install -r requirements.txt
 
-test:
-	python -m pytest -vv --cov=main ${TEST_SRC}
+tests:
+	@echo "Running Tests using pytest"
+	@echo "=========================="
+	@echo "Testing: ${TEST_SRC}"
+	python -m pytest -vv --cov=funcLog ${TEST_SRC}
 
 format:
 	@echo "Formatting using black"
