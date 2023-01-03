@@ -48,7 +48,16 @@ This is a template repository for all of my Python projects. I use virtualenv to
     "--type f" as "args": [("--type", " f")]
 
 ### Creating a Conda Environment within your Workspace
-
+- Create a .bash_profile (if one wasnt already created) with the following:
+    ```bash
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    eval "$('/c/Users/vcoelho/Miniconda3/Scripts/conda.exe' 'shell.bash' 'hook')"
+    # <<< conda initialize <<<
+    if [ -f ~/.bashrc ]; then
+        source ~/.bashrc
+    fi
+    ```
 - Hit Ctrl+~ to open up the terminal and create a new Conda environment:
     ```conda create -n python_sandbox python=3.11```
 - If its unable to find python 3.11, add conda-forge to the list of channels
@@ -59,10 +68,33 @@ This is a template repository for all of my Python projects. I use virtualenv to
     ```python --version```
 - Add additional tools for linting and type-hinting
     ```python -m pip install autopep8 pylint mypy```
-- Tie this new environment in to your launch configuration. Add it to settings.json
+- Tie this new environment in to your launch configuration; Add it to settings.json
     ```
     "python.pythonPath": "C:\\Users\\vcoelho\\Miniconda3\\envs\\python_sandbox"
     ```
     > Note: You can find the environment folder by running
     > ```conda env list```
     >```python_sandbox        *  C:\Users\vcoelho\Miniconda3\envs\python_sandbox```
+
+- Install the python dependencies
+    ```
+    python -m pip install -r requirements.txt
+    ```
+- If you do add more pacakges to your environment, be sure to update the requirements.txt file
+    ```
+    python -m pip freeze > requirements.txt
+    ```
+- Alternatively, if you have your requirements.txt arranged a certain way, you can add the package name to the file (without a version number), run pip install and figure out which version was installed. For example, we want to install the 'fire'package, we would
+  - add fire to requirements.txt
+  - run ```python -m pip install -r requirements.txt```
+  - run ```python -m pip freeze | grep file``` to see the version of the package installed,
+        ```fire==0.5.0```
+  - copy the line over to requirements.txt
+
+### Setting up PyLint
+
+- Pylint doesn't know where the imports are located. Once the environment is active, we will have pylint create a configuration file for us
+    ```pylint --generate-rcfile > .pylintrc```
+- Open the file, search for init-hook; the line is usually commented, uncomment it
+- Amend the line as follows:
+  ```init-hook='import sys; sys.path.append("<path/to/importable/modules>")```

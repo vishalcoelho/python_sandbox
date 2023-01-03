@@ -1,3 +1,4 @@
+#!/c/Users/vcoelho/miniconda3/envs/python_sandbox/python
 #!/c/Users/savio/miniconda3/envs/python_sandbox/python
 
 """
@@ -19,7 +20,6 @@ def cli() -> None:
     $ cliMathCode.py mul 6 7\n
     $ cliMathCode.py div 14 7\n
     """
-
 
 
 @cli.command("add")
