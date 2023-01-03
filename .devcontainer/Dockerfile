@@ -21,5 +21,5 @@ COPY requirements.txt /tmp/
 COPY Makefile /tmp/
 
 RUN su $USERNAME -c "/usr/bin/python3.11 -m venv $VENV_PATH" \
-  && su $USERNAME -c "${VENV_PATH}/bin/pip --disable-pip-version-check --no-cache-dir install -r /tmp/requirements.txt" \
+  && su $USERNAME -c "${VENV_PATH}/Scripts/pip --disable-pip-version-check --no-cache-dir install -r /tmp/requirements.txt" \
   && rm -rf /tmp/requirements.txt
