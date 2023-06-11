@@ -1,5 +1,4 @@
-#!/c/Users/vcoelho/miniconda3/envs/python_sandbox/python
-#!/c/Users/savio/miniconda3/envs/python_sandbox/python
+#!.env/Scripts/python.exe
 
 """
 Build a command line interface for the math functions using the fire package.

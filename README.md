@@ -87,9 +87,9 @@ This is a template repository for all of my Python projects. I use virtualenv to
 - Alternatively, if you have your requirements.txt arranged a certain way, you can add the package name to the file (without a version number), run pip install and figure out which version was installed. For example, we want to install the 'fire'package, we would
   - add fire to requirements.txt
   - run ```python -m pip install -r requirements.txt```
-  - run ```python -m pip freeze | grep file``` to see the version of the package installed,
+  - run ```python -m pip freeze | grep fire``` to see the version of the package installed,
         ```fire==0.5.0```
-  - copy the line over to requirements.txt
+  - copy the line over to requirements.txt and pin the fire module to a specific version.
 
 ### Setting up PyLint
 
@@ -98,3 +98,22 @@ This is a template repository for all of my Python projects. I use virtualenv to
 - Open the file, search for init-hook; the line is usually commented, uncomment it
 - Amend the line as follows:
   ```init-hook='import sys; sys.path.append("<path/to/importable/modules>")```
+
+## Notes on Command Line Tools
+
+### Python Fire
+It's a Google tool that offers a command line interface similar to click. Make sure to change file mode to executable,
+
+```
+chmod +x funclog/cli_fire_math_code.py
+
+```
+Invoke at the command line as:
+
+```
+./funclog/cli_fire_math_code.py --help
+```
+Be sure to add the shebang at the top of the cli python file so it knows where to find the interpreter.
+```
+#!.env/Scripts/python.exe
+```
