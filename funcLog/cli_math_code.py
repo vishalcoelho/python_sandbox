@@ -1,5 +1,4 @@
-#!/c/Users/vcoelho/miniconda3/envs/python_sandbox/python
-#!/c/Users/savio/miniconda3/envs/python_sandbox/python
+#!.env/Scripts/python.exe
 
 """
 Build a click-base CLI that uses the logic in math_code.py

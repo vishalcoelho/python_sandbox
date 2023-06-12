@@ -1,3 +1,13 @@
+#Table of Contents
+- [Template for all Python Projects](#template-for-all-python-projects)
+  - [Using GitHub Codespaces](#using-github-codespaces)
+  - [Using Local VS Code](#using-local-vs-code)
+    - [Creating a Conda Environment within your Workspace](#creating-a-conda-environment-within-your-workspace)
+    - [Setting up PyLint](#setting-up-pylint)
+- [Notes](#notes)
+  - [Notes on Command Line Tools](#notes-on-command-line-tools)
+  - [Notes on FastAPI](#notes-on-fastapi)
+
 # Template for all Python Projects
 
 This is a template repository for all of my Python projects. I use virtualenv to create a contained environment for all my Python packages, which i manage with pip. I use GitHub Codespaces to create a remote online instance of Visual Studio Code to run my programs
@@ -93,27 +103,34 @@ This is a template repository for all of my Python projects. I use virtualenv to
 
 ### Setting up PyLint
 
+
 - Pylint doesn't know where the imports are located. Once the environment is active, we will have pylint create a configuration file for us
     ```pylint --generate-rcfile > .pylintrc```
 - Open the file, search for init-hook; the line is usually commented, uncomment it
 - Amend the line as follows:
   ```init-hook='import sys; sys.path.append("<path/to/importable/modules>")```
 
+# Notes
 ## Notes on Command Line Tools
 
-### Python Fire
-It's a Google tool that offers a command line interface similar to click. Make sure to change file mode to executable,
-
+For either the Click or Fire based CLI tools, be sure to make them executables.
 ```
 chmod +x funclog/cli_fire_math_code.py
-
-```
-Invoke at the command line as:
-
-```
-./funclog/cli_fire_math_code.py --help
+chmod +x funclog/cli_math_code.py
 ```
 Be sure to add the shebang at the top of the cli python file so it knows where to find the interpreter.
 ```
 #!.env/Scripts/python.exe
 ```
+You can then invoke each script directly at the command line:
+
+```
+./funclog/cli_math_code.py --help
+```
+or,
+```
+./funclog/cli_fire_math_code.py --help
+```
+
+## Notes on FastAPI
+*funclog/web_math_code.py* adds a web-accessible API to each of the math functions; you will be able to start a server at http://localhost:8080/docs and play around with each of the functions in real time.
