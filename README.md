@@ -1,16 +1,18 @@
 #Table of Contents
-- [Template for all Python Projects](#template-for-all-python-projects)
+- [General Instructions for Python Projects](#general-instructions-for-python-projects)
   - [Using GitHub Codespaces](#using-github-codespaces)
   - [Using Local VS Code](#using-local-vs-code)
+  - [Creating a Virtual Environment](#creating-a-virtual-environment)
+    - [Creating a venv Environment](#creating-a-venv-environment)
     - [Creating a Conda Environment within your Workspace](#creating-a-conda-environment-within-your-workspace)
     - [Setting up PyLint](#setting-up-pylint)
 - [Notes](#notes)
   - [Notes on Command Line Tools](#notes-on-command-line-tools)
   - [Notes on FastAPI](#notes-on-fastapi)
 
-# Template for all Python Projects
+# General Instructions for Python Projects
 
-This is a template repository for all of my Python projects. I use virtualenv to create a contained environment for all my Python packages, which i manage with pip. I use GitHub Codespaces to create a remote online instance of Visual Studio Code to run my programs
+I use virtualenv to create a contained environment for all my Python packages, which I manage with pip. I use GitHub Codespaces to create a remote online instance of Visual Studio Code to run my programs
 
 *GitHub Codespaces is free to use--for education--at the time of writing*
 
@@ -56,6 +58,34 @@ This is a template repository for all of my Python projects. I use virtualenv to
 - Place command line arguments in the arg field
   - if you are using named arguments, provide them as a tuple. For e.g.,
     "--type f" as "args": [("--type", " f")]
+
+## Creating a Virtual Environment
+ You have the option to create an environment using either _venv_ or _conda_.
+
+### Creating a venv Environment
+- _venv_ is part of Python's standard library
+- Create a virtual environment folder at the root of your repository
+    ```bash
+    python -m venv venv
+    ```
+- activate the virtual environment
+    ```bash
+    source venv/Scripts/activate
+    ```
+  You will see the activated environment over your terminal prompt
+  ![activated_python_venv](/docs/images/activated_python_venv.png)
+- Install the python dependencies
+    ```
+    python -m pip install -r requirements.txt
+    ```
+- If you do add more pacakges to your environment, be sure to update the requirements.txt file
+    ```
+    python -m pip freeze > requirements.txt
+    ```
+- To deactivate the virtual environment simply,
+    ```bash
+    deactivate
+    ```
 
 ### Creating a Conda Environment within your Workspace
 - Create a .bash_profile (if one wasnt already created) with the following:
